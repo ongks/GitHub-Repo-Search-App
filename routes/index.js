@@ -7,6 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/search', function(req, res) {
+	var val = req.query.search;
+	var url = 'https://api.github.com/legacy/repos/search/' + val;
+	console.log(url);
 
 });
 
