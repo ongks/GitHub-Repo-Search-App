@@ -21,13 +21,24 @@ router.get('/search', function(req, res) {
 	};
 
 	function callback(err, resp, body) {
+		var resultsArray = [];
 		body = JSON.parse(body);
-		// logic used to compare search results with the input from user
-		if (!body['repositories']) {
+		// compare search results with the input from user
+		if (!body.repositories[0]) {
 			searchRes = "No results found. Try again.";
+			res.send(searchRes);
 		} else {
-			searchRes = body['repositories'];
+			searchRes = body.repositories;
+			for(var i = 0; i < searchRes.length; i++) {
+				resultsArray.push(
+					{language: searchRes[i]["language"],
+					followers: searchRes[i]["followers"],
+					url: searchRes[i]["url"],
+					description: searchRes[i]["description"]}
+				);
+			}
 		}
+		console.log(body.repositories[0]);
 		// pass back the results to client side
 		res.send(searchRes);
 	}
