@@ -1,5 +1,9 @@
 //Captures search result in 'val' upon pressing enter
 $(function(){
+    var source = $("#search-results").html();
+    var dataTemplate = Handlebars.compile(source);
+    $results = $('#results');
+
     $('#search').on('keyup', function(e){
         if(e.keyCode === 13) {
             var parameters = { 

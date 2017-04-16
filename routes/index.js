@@ -31,17 +31,19 @@ router.get('/search', function(req, res) {
 			searchRes = body.repositories;
 			for(var i = 0; i < searchRes.length; i++) {
 				resultsArray.push(
-					{language: searchRes[i]["language"],
+					{owner: searchRes[i]["owner"],
+					name: searchRes[i]["name"],
+					language: searchRes[i]["language"],
 					followers: searchRes[i]["followers"],
 					url: searchRes[i]["url"],
 					description: searchRes[i]["description"]}
 				);
 			}
+			res.send(searchRes);
 		}
-		console.log(body.repositories[0]);
+		//console.log(body.repositories[0]);
 		// pass back the results to client side
-		res.send(searchRes);
-	}
+	};
 
 	// request module is used to process the github api url and return the results in JSON format
 	request(options, callback);
