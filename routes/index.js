@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res) {
 	var val = req.query.search;
 	var url = 'https://api.github.com/legacy/repos/search/' + val;
-	console.log(url);
+	//console.log(url);
 
 	//headers required to access github api
 	var options = {
@@ -20,13 +20,15 @@ router.get('/search', function(req, res) {
 		}
 	};
 
+	//part of request module which processes input from user by inserting
+	//each result into the resultsArray
 	function callback(err, resp, body) {
 		var resultsArray = [];
 		body = JSON.parse(body);
 		// compare search results with the input from user
 		if (!body.repositories[0]) {
 			searchRes = "No results found. Try again.";
-			res.send(searchRes);
+			reply(searchRes);
 		} else {
 			searchRes = body.repositories;
 			for(var i = 0; i < searchRes.length; i++) {
@@ -39,14 +41,21 @@ router.get('/search', function(req, res) {
 					description: searchRes[i]["description"]}
 				);
 			}
-			res.send(searchRes);
+			reply(resultsArray);
 		}
-		//console.log(body.repositories[0]);
-		// pass back the results to client side
 	};
 
 	// request module is used to process the github api url and return the results in JSON format
-	request(options, callback);
+	function requests(url, reply) {
+		request(options, callback);
+	};
+
+	// pass back the results to client side
+	function reply(data) {
+		res.send(data);
+	}
+
+	requests(url, reply);
 });
 
 module.exports = router;
