@@ -4,6 +4,8 @@ block content
   h1= title
   p Welcome to #{title}!
 
-  form#formKeyword(name="keyword",method="get",action="/search")
-        input#search(type="text", placeholder="Search.." name="keyword")
-        button#btnSearch(type="search") Search
+  input#search(type="search", placeholder="Search for...")
+  h2#results
+
+  script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(src="/javascripts/main.js")
