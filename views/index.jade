@@ -2,4 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title}!
+
+  form#formKeyword(name="keyword",method="get",action="/search")
+        input#search(type="text", placeholder="Search.." name="keyword")
+        button#btnSearch(type="search") Search
