@@ -1,0 +1,22 @@
+<!--Template page for details of repo in each button-->
+<script id="search-results" type="text/x-handlebars-template">
+  {{#each resultsArray}}
+    <br>
+    <div class="dropdown">
+      <a href="#showMenu{{idx}}" class="btn" id="showMenu{{idx}}">
+        {{owner}}/{{name}}
+      </a>
+      <div class="outer-list top">
+        <ul>
+          <li>Repository: {{owner}}/{{name}}</li>
+          <li>Language: {{language}}</li>
+          <li>Followers: {{followers}}</li>
+          <li>Description: {{description}}</li>
+          <li>Link: {{url}}</li>
+        </ul>
+      </div>
+    </div>
+  {{/each}}
+  </ul>
+</script>
+  

@@ -1,8 +1,171 @@
+@import url('http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300,400,600');
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-image: url('http://www.no-zaku.com/background/wp-content/uploads/sites/9/2016/11/Nice-Website-Backgrounds-Images-768x494.jpg');
+  background-size: 100%;
+  background-repeat: repeat;
+  display: compact;
+  padding-bottom: 6em;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.25em;
+  margin-bottom: .5em;
+  text-align: center;
+  color: #fff;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+#search {
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  font-size: 2.0em;
+  border-radius: 4px;
+}
+
+#head {
+  text-align: center;
+  font-size: 1.0em;
+  color: #fff;
+}
+
+#results {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.0em;
+  padding: 1em;
+  border-radius: .15em;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  overflow: hidden;
+  color: #fff;
+}
+
+.sep {
+  width: 40%;
+  height: 1px;
+  margin: 2.5em auto;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #03A9F4;
+  color: #fff;
+  padding: 1em;
+  border-radius: .15em;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  right: -50%;
+  z-index: 1;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.35s ease;
+}
+
+.btn:active:after,
+.btn.dropdown-open:after {
+  width: 200%;
+  height: 200%;
+}
+
+.btn:hover {
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.btn.dropdown-open + .outer-list {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown {
+  position: relative;
+  margin: 0 auto;
+  width: 15em;
+}
+
+.dropdown > .outer-list {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+}
+
+.dropdown > .outer-list.top {
+  align-items: flex-start;
+  transform-origin: 50% 0;
+}
+
+.dropdown > .outer-list.left {
+  justify-content: flex-start;
+}
+
+.dropdown > .outer-list.bottom {
+  align-items: flex-end;
+  transform-origin: 50% 100%;
+}
+
+.dropdown > .outer-list.right {
+  justify-content: flex-end;
+}
+
+.dropdown > .outer-list > ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: .2em;
+}
+
+.dropdown > .outer-list > ul li {
+  padding: .25em 3em;
+  margin: .25em;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.35s ease;
+}
+
+.dropdown > .outer-list > ul li:hover {
+  background: rgba(0, 0, 0, 0.07);
 }
