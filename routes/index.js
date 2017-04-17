@@ -10,7 +10,13 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res) {
 	var val = req.query.search;
 	var url = 'https://api.github.com/legacy/repos/search/' + val;
-	//console.log(url);
+	console.log(val);
+
+	//input validation: ensure no blank keyword is provided.
+	if(val == '') {
+		res.send("Please enter a term to search for!");
+		return 0;
+	} 
 
 	//headers required to access github api
 	var options = {
@@ -25,6 +31,8 @@ router.get('/search', function(req, res) {
 	function callback(err, resp, body) {
 		var resultsArray = [];
 		body = JSON.parse(body);
+		//console.log(body);
+
 		// compare search results with the input from user
 		if (!body.repositories[0]) {
 			searchRes = "No results found. Try again.";

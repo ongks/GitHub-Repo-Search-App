@@ -21,6 +21,7 @@ $(function(){
     });
 });
 
+//helper function that listens for events such as click and 'unclick'
 var manageButtons = function() {
 
   var _btns = document.querySelectorAll('.btn'),
