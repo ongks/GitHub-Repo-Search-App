@@ -1,8 +1,8 @@
-#Overview
+# Overview
 
 A single page JavaScript application that allows one to search Github for repos by keyword.
 
-##Instructions:
+## Instructions:
 
 1. Ensure that NodeJS has already been installed. In your terminal, key in
 
