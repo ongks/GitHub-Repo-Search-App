@@ -2,11 +2,17 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-/* GET home page. */
+// GET home page
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'GitHub Search' });
 });
 
+/*
+Search queries will be routed to this function.
+If the input is valid (e.g. blank string), user will be prompted to key in a non-empty string.
+Else the query accesses GitHub's api and parses the result as a JSON. The relevant information
+are stored in the resultsArray and returned to main.js
+*/
 router.get('/search', function(req, res) {
 	var val = req.query.search;
 	var url = 'https://api.github.com/legacy/repos/search/' + val;

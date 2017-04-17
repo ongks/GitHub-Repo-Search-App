@@ -6,6 +6,11 @@
 }
 
 body {
+  margin: 0;
+  background-image: url('http://www.no-zaku.com/background/wp-content/uploads/sites/9/2016/11/Nice-Website-Backgrounds-Images-768x494.jpg');
+  background-size: 100%;
+  background-repeat: repeat;
+  display: compact;
   padding-bottom: 6em;
 }
 
@@ -14,6 +19,7 @@ h1 {
   font-size: 2.25em;
   margin-bottom: .5em;
   text-align: center;
+  color: #fff;
 }
 
 a {
@@ -31,6 +37,7 @@ a {
 #head {
   text-align: center;
   font-size: 1.0em;
+  color: #fff;
 }
 
 #results {
@@ -44,6 +51,7 @@ a {
   cursor: pointer;
   transition: all 0.35s ease;
   overflow: hidden;
+  color: #fff;
 }
 
 .sep {
