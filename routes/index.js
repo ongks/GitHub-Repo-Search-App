@@ -33,7 +33,8 @@ router.get('/search', function(req, res) {
 			searchRes = body.repositories;
 			for(var i = 0; i < searchRes.length; i++) {
 				resultsArray.push(
-					{owner: searchRes[i]["owner"],
+					{idx: "" + i,
+					owner: searchRes[i]["owner"],
 					name: searchRes[i]["name"],
 					language: searchRes[i]["language"],
 					followers: searchRes[i]["followers"],
